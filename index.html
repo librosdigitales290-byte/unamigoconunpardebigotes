@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,53 +7,96 @@
     <title>AR Video Experience</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+```
+<style>
+    #sound-button {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 20px;
+        font-size: 16px;
+        background: #000;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+</style>
+```
+
 </head>
 <body>
-    <a-scene mindar-image="imageTargetSrc: ./marker.mind; autoStart: false; uiError:no; uiLoading:no; uiScanning:no;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" renderer="colorManagement: true;">
-        <a-assets>
-            <video id="ar-video" src="./asset.mp4" loop muted playsinline crossorigin="anonymous"></video>
-            
-        </a-assets>
-        
-        <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
 
-        <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
-            <a-plane
-                src="#ar-video"
-                position="0 0 0"
-                rotation="0 0 0"
-                height="1"
-                width="1.7513812154696133"
-            ></a-plane>
-            
-        </a-entity>
-    </a-scene>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const arTarget = document.querySelector('#ar-target');
-            const video = document.querySelector('#ar-video');
-            arTarget.addEventListener('targetFound', () => { 
-                video.play().catch(e => console.error("Video play failed", e)); 
+```
+<!-- BOTÓN DE AUDIO -->
+<button id="sound-button">🔊 Activar sonido</button>
+
+<a-scene mindar-image="imageTargetSrc: ./marker.mind; autoStart: false; uiError:no; uiLoading:no; uiScanning:no;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" renderer="colorManagement: true;">
+    <a-assets>
+        <video id="ar-video" src="./asset.mp4" loop playsinline crossorigin="anonymous"></video>
+    </a-assets>
+    
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
+        <a-plane
+            src="#ar-video"
+            position="0 0 0"
+            rotation="0 0 0"
+            height="1"
+            width="1.7513812154696133"
+        ></a-plane>
+    </a-entity>
+</a-scene>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const arTarget = document.querySelector('#ar-target');
+        const video = document.querySelector('#ar-video');
+        const soundButton = document.querySelector('#sound-button');
+
+        video.muted = true; // empieza muteado por compatibilidad
+
+        // Activar sonido al pulsar botón
+        soundButton.addEventListener('click', () => {
+            video.muted = false;
+            video.volume = 1;
+
+            video.play().then(() => {
+                video.pause(); // desbloquea audio
             });
-            arTarget.addEventListener('targetLost', () => { 
-                video.pause(); 
-            });
+
+            soundButton.style.display = 'none'; // ocultar botón
         });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sceneEl = document.querySelector('a-scene');
-            let arSystemRunning = false;
-            
-            sceneEl.addEventListener('loaded', function () {
-                const arSystem = sceneEl.systems['mindar-image-system'];
-                if (arSystem && arSystem.start && !arSystemRunning) {
-                    arSystem.start();
-                    arSystemRunning = true;
-                }
-                
-            });
+
+        arTarget.addEventListener('targetFound', () => { 
+            video.play().catch(e => console.error("Video play failed", e)); 
         });
-    </script>
+
+        arTarget.addEventListener('targetLost', () => { 
+            video.pause(); 
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sceneEl = document.querySelector('a-scene');
+        let arSystemRunning = false;
+        
+        sceneEl.addEventListener('loaded', function () {
+            const arSystem = sceneEl.systems['mindar-image-system'];
+            if (arSystem && arSystem.start && !arSystemRunning) {
+                arSystem.start();
+                arSystemRunning = true;
+            }
+        });
+    });
+</script>
+```
+
 </body>
 </html>
