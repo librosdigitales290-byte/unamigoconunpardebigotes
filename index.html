@@ -37,7 +37,7 @@
         <a-assets>
             <video id="vidGato" src="gato.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidBebe" src="bebe.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
-            <video id="vidBebe" src="tormenta.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidTormenta" src="tormenta.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -48,6 +48,10 @@
 
         <a-entity mindar-image-target="targetIndex: 1" id="targetBebe">
             <a-video src="#vidBebe" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+         <a-entity mindar-image-target="targetIndex: 1" id="targetTormenta">
+            <a-video src="#vidTormenta" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
     </a-scene>
