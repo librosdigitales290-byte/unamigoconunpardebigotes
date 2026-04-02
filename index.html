@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Video Experience - Multi Target</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    
+    <style>
+        /* Estilo para el botón de inicio */
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: sans-serif;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #2563eb;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay">
+        <h1>AR Ready</h1>
+        <p>Toca el botón para iniciar la cámara y sonidos</p>
+        <button id="startButton">COMENZAR</button>
+    </div>
+
+    <a-scene 
+        mindar-image="imageTargetSrc: ./gato.mind; autoStart: false; uiScanning:yes;" 
+        vr-mode-ui="enabled: false" 
+        device-orientation-permission-ui="enabled: false" 
+        renderer="colorManagement: true; antialias: true;">
+        
+        <a-assets>
+            <video id="video-gato" src="./gato.mp4" loop="true" playsinline webkit-playsinline crossorigin="anonymous" muted></video>
+            <video id="video-lloro" src="./lloro.mp4" loop="true" playsinline webkit-playsinline crossorigin="anonymous" muted></video>
+        </a-assets>
+        
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity id="target-gato" mindar-image-target="targetIndex: 0">
+            <a-video src="#video-gato" position="0 0 0" height="1" width="1.77"></a-video>
+        </a-entity>
+
+        <a-entity id="target-lloro" mindar-image-target="targetIndex: 1">
+            <a-video src="#video-lloro" position="0 0 0" height="1" width="1.77"></a-video>
+        </a-entity>
+
+    </a-scene>
+
+    <script>
+        const startButton = document.querySelector('#startButton');
+        const overlay = document.querySelector('#overlay');
+        const sceneEl = document.querySelector('a-scene');
+
+        // Referencias a videos
+        const vGato = document.querySelector('#video-gato');
+        const vLloro = document.querySelector('#video-lloro');
+
+        startButton.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            
+            // 1. Iniciar la escena de MindAR
+            sceneEl.systems["mindar-image-system"].start();
+
+            // 2. "Cebado" de videos: Se reproducen y pausan un milisegundo para ganar permiso
+            vGato.play().then(() => vGato.pause());
+            vLloro.play().then(() => vLloro.pause());
+        });
+
+        // Lógica de detección para Gato
+        const tGato = document.querySelector('#target-gato');
+        tGato.addEventListener('targetFound', () => {
+            console.log("Target Gato encontrado");
+            vGato.play();
+        });
+        tGato.addEventListener('targetLost', () => {
+            vGato.pause();
+        });
+
+        // Lógica de detección para Lloro
+        const tLloro = document.querySelector('#target-lloro');
+        tLloro.addEventListener('targetFound', () => {
+            console.log("Target Lloro encontrado");
+            // Si quieres que tenga sonido, quita el 'muted' aquí después de la interacción
+            vLloro.muted = false; 
+            vLloro.play();
+        });
+        tLloro.addEventListener('targetLost', () => {
+            vLloro.pause();
+        });
+    </script>
+</body>
+</html>
