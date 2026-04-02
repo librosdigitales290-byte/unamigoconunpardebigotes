@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Experience</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+
+    <a-scene 
+        mindar-image="imageTargetSrc: ./gato.mind; autoStart: true; uiScanning: yes;" 
+        vr-mode-ui="enabled: false" 
+        device-orientation-permission-ui="enabled: false"
+        renderer="colorManagement: true;">
+        
+        <a-assets>
+            <video id="video-gato" src="./gato.mp4" loop="true" playsinline webkit-playsinline muted crossorigin="anonymous"></video>
+            <video id="video-lloro" src="./lloro.mp4" loop="true" playsinline webkit-playsinline muted crossorigin="anonymous"></video>
+        </a-assets>
+        
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity id="target-gato" mindar-image-target="targetIndex: 0">
+            <a-video src="#video-gato" position="0 0 0" height="1" width="1.77"></a-video>
+        </a-entity>
+
+        <a-entity id="target-lloro" mindar-image-target="targetIndex: 1">
+            <a-video src="#video-lloro" position="0 0 0" height="1" width="1.77"></a-video>
+        </a-entity>
+
+    </a-scene>
+
+    <script>
+        // Función para intentar reproducir video manejando el bloqueo del navegador
+        const playVideo = (video) => {
+            if (video) {
+                video.play().catch(err => {
+                    console.log("Reproducción bloqueada: requiere clic del usuario");
+                });
+            }
+        };
+
+        // Gato
+        const tGato = document.querySelector('#target-gato');
+        const vGato = document.querySelector('#video-gato');
+        tGato.addEventListener('targetFound', () => playVideo(vGato));
+        tGato.addEventListener('targetLost', () => vGato.pause());
+
+        // Lloro
+        const tLloro = document.querySelector('#target-lloro');
+        const vLloro = document.querySelector('#video-lloro');
+        tLloro.addEventListener('targetFound', () => playVideo(vLloro));
+        tLloro.addEventListener('targetLost', () => vLloro.pause());
+
+        // IMPORTANTE: Un clic en cualquier parte de la pantalla desbloquea el sonido
+        window.addEventListener('click', () => {
+            vGato.muted = false;
+            vLloro.muted = false;
+        });
+    </script>
+</body>
+</html>
