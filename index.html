@@ -38,6 +38,7 @@
             <video id="vidTormenta" src="tormenta.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidTostada" src="tostada.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidCucaracha" src="cucaracha.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidDinosaurio" src="dinosaurio.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -53,6 +54,9 @@
          <a-entity mindar-image-target="targetIndex: 2" id="targetCucaracha">
             <a-video src="#vidCucaracha" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
+        <a-entity mindar-image-target="targetIndex: 3" id="targetDinosaurio">
+            <a-video src="#vidDinosaurio" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
 
     </a-scene>
 
@@ -60,6 +64,7 @@
         const vTormenta = document.querySelector('#vidTormenta');
         const vTostada = document.querySelector('#vidTostada');
         const vCucaracha = document.querySelector('#vidCucaracha');
+        const vDinosaurio = document.querySelector('#vidDinosaurio');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -73,12 +78,14 @@
         setupTarget('#targetTormenta', vTormenta);
         setupTarget('#targetTostada', vTostada);
         setupTarget('#targetCucaracha', vCucaracha);
+        setupTarget('#targetDinosaurio',vDinosaurio);
 
         // Los navegadores bloquean el video con sonido si no hay interacción previa
         btn.addEventListener('click', () => {
             vTormenta.muted = false;
             vTostada.muted = false;
             vCucaracha.muted = false;
+            vDinosaurio.muted = false;
 
             btn.style.display = 'none';
         });
