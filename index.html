@@ -39,6 +39,7 @@
             <video id="vidTostada" src="tostada.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidCucaracha" src="cucaracha.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidDinosaurio" src="dinosaurio.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidMike" src="mike.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -54,8 +55,13 @@
          <a-entity mindar-image-target="targetIndex: 2" id="targetCucaracha">
             <a-video src="#vidCucaracha" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
+        
         <a-entity mindar-image-target="targetIndex: 3" id="targetDinosaurio">
             <a-video src="#vidDinosaurio" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 4" id="targetMike">
+            <a-video src="#vidMike" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
     </a-scene>
@@ -65,6 +71,7 @@
         const vTostada = document.querySelector('#vidTostada');
         const vCucaracha = document.querySelector('#vidCucaracha');
         const vDinosaurio = document.querySelector('#vidDinosaurio');
+         const vMike = document.querySelector('#vidMike');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -79,6 +86,7 @@
         setupTarget('#targetTostada', vTostada);
         setupTarget('#targetCucaracha', vCucaracha);
         setupTarget('#targetDinosaurio',vDinosaurio);
+        setupTarget('#targetMike',vMike);
 
         // Los navegadores bloquean el video con sonido si no hay interacción previa
         btn.addEventListener('click', () => {
@@ -86,6 +94,7 @@
             vTostada.muted = false;
             vCucaracha.muted = false;
             vDinosaurio.muted = false;
+            vMike.muted = false;
 
             btn.style.display = 'none';
         });
