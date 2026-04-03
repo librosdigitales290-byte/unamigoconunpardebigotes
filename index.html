@@ -40,6 +40,9 @@
             <video id="vidCucaracha" src="cucaracha.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidDinosaurio" src="dinosaurio.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidMike" src="mike.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidCasa" src="casa.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidDibujo" src="dibujo.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidTelefono" src="telefono.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -63,6 +66,16 @@
         <a-entity mindar-image-target="targetIndex: 4" id="targetMike">
             <a-video src="#vidMike" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
+        <a-entity mindar-image-target="targetIndex: 5" id="targetCasa">
+            <a-video src="#vidCasa" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity
+            
+            <a-entity mindar-image-target="targetIndex: 6" id="targetDibujo">
+            <a-video src="#vidDibujo" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+        <a-entity mindar-image-target="targetIndex: 7" id="targetTelefono">
+            <a-video src="#vidTelefono" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
 
     </a-scene>
 
@@ -72,6 +85,9 @@
         const vCucaracha = document.querySelector('#vidCucaracha');
         const vDinosaurio = document.querySelector('#vidDinosaurio');
         const vMike = document.querySelector('#vidMike');
+        const vCasa = document.querySelector('#vidCasa');
+        const vDibujo = document.querySelector('#vidDibujo');
+        const vTelefono = document.querySelector('#vidTelefono');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -87,6 +103,9 @@
         setupTarget('#targetCucaracha', vCucaracha);
         setupTarget('#targetDinosaurio',vDinosaurio);
         setupTarget('#targetMike',vMike);
+        setupTarget('#targetCasa',vCasa);
+        setupTarget('#targetDibujo',vDibujo);
+        setupTarget('#targetTelefono',vTelefono);
 
         // Los navegadores bloquean el video con sonido si no hay interacción previa
         btn.addEventListener('click', () => {
@@ -95,6 +114,9 @@
             vCucaracha.muted = false;
             vDinosaurio.muted = false;
             vMike.muted = false;
+            vCasa.muted = false;
+            vDibujo.muted = false;
+            vTelefono.muted = false;
 
             btn.style.display = 'none';
         });
