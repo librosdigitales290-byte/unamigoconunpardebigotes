@@ -35,31 +35,31 @@
         device-orientation-permission-ui="enabled: false">
       
         <a-assets>
-            <video id="vidGato" src="gato.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
-            <video id="vidBebe" src="bebe.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
-            <video id="vidTormenta" src="tormenta.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidGato" src="tormenta.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidBebe" src="tostada.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidTormenta" src="cucaracha.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
         <a-entity mindar-image-target="targetIndex: 0" id="targetGato">
-            <a-video src="#vidGato" width="1" height="0.56" position="0 0 0"></a-video>
+            <a-video src="#vidTormenta" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
         <a-entity mindar-image-target="targetIndex: 1" id="targetBebe">
-            <a-video src="#vidBebe" width="1" height="0.56" position="0 0 0"></a-video>
+            <a-video src="#vidTostada" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
          <a-entity mindar-image-target="targetIndex: 2" id="targetTormenta">
-            <a-video src="#vidTormenta" width="1" height="0.56" position="0 0 0"></a-video>
+            <a-video src="#vidCucaracha" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
     </a-scene>
 
     <script>
-        const vGato = document.querySelector('#vidGato');
-        const vBebe = document.querySelector('#vidBebe');
         const vTormenta = document.querySelector('#vidTormenta');
+        const vTostada = document.querySelector('#vidTostada');
+        const vCucaracha = document.querySelector('#vidCucaracha');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -70,15 +70,15 @@
             el.addEventListener("targetLost", () => video.pause());
         }
 
-        setupTarget('#targetGato', vGato);
-        setupTarget('#targetBebe', vBebe);
         setupTarget('#targetTormenta', vTormenta);
+        setupTarget('#targetTostada', vTostada);
+        setupTarget('#targetCucaracha', vCucaracha);
 
         // Los navegadores bloquean el video con sonido si no hay interacción previa
         btn.addEventListener('click', () => {
-            vGato.muted = false;
-            vBebe.muted = false;
             vTormenta.muted = false;
+            vTostada.muted = false;
+            vCucaracha.muted = false;
 
             btn.style.display = 'none';
         });
