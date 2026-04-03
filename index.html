@@ -51,6 +51,8 @@
             <video id="vidCuerdas" src="cuerdas.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidCasaarbol" src="casaarbol.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidRusa" src="rusa.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidBebe" src="bebe.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidGato" src="gato.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -119,6 +121,14 @@
             <a-video src="#vidRusa" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
+        <a-entity mindar-image-target="targetIndex: 16" id="targetBebe">
+            <a-video src="#vidBebe" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 17" id="targetGato">
+            <a-video src="#vidGato" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
     </a-scene>
 
     <script>
@@ -138,6 +148,8 @@
         const vCuerdas = document.querySelector('#vidCuerdas');
         const vCasaarbol = document.querySelector('#vidCasaarbol');
         const vRusa = document.querySelector('#vidRusa');
+        const vBebe = document.querySelector('#vidBebe');
+        const vGato = document.querySelector('#vidGato');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -164,6 +176,8 @@
         setupTarget('#targetCuerdas',vCuerdas);
         setupTarget('#targetCasaarbol',vCasaarbol);
         setupTarget('#targetRusa',vRusa);
+        setupTarget('#targetBebe',vBebe);
+        setupTarget('#targetGato',vGato);
 
         // Los navegadores bloquean el video con sonido si no hay interacción previa
         btn.addEventListener('click', () => {
@@ -183,6 +197,8 @@
             vCuerdas.muted = false;
             vCasaarbol.muted = false;
             vRusa.muted = false;
+            vBebe.muted = false;
+            vGato.muted = false;
 
             btn.style.display = 'none';
         });
