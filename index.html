@@ -47,6 +47,10 @@
             <video id="vidEnsalada" src="ensalada.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidMudanza" src="mudanza.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidPiano" src="piano.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidNota" src="nota.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidCuerdas" src="cuerdas.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidCasaarbol" src="casaarbol.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidRusa" src="rusa.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -99,6 +103,22 @@
             <a-video src="#vidPiano" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
+        <a-entity mindar-image-target="targetIndex: 12" id="targetNota">
+            <a-video src="#vidNota" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 13" id="targetCuerdas">
+            <a-video src="#vidCuerdas" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 14" id="targetCasaarbol">
+            <a-video src="#vidCasaarbol" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 15" id="targetRusa">
+            <a-video src="#vidRusa" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
     </a-scene>
 
     <script>
@@ -114,6 +134,10 @@
         const vEnsalada = document.querySelector('#vidEnsalada');
         const vMudanza = document.querySelector('#vidMudanza');
         const vPiano = document.querySelector('#vidPiano');
+        const vNota = document.querySelector('#vidNota');
+        const vCuerdas = document.querySelector('#vidCuerdas');
+        const vCasaarbol = document.querySelector('#vidCasaarbol');
+        const vRusa = document.querySelector('#vidRusa');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -136,6 +160,10 @@
         setupTarget('#targetEnsalada',vEnsalada);
         setupTarget('#targetMudanza',vMudanza);
         setupTarget('#targetPiano',vPiano);
+        setupTarget('#targetNota',vNota);
+        setupTarget('#targetCuerdas',vCuerdas);
+        setupTarget('#targetCasaarbol',vCasaarbol);
+        setupTarget('#targetRusa',vRusa);
 
         // Los navegadores bloquean el video con sonido si no hay interacción previa
         btn.addEventListener('click', () => {
@@ -151,6 +179,10 @@
             vEnsalada.muted = false;
             vMudanza.muted = false;
             vPiano.muted = false;
+            vNota.muted = false;
+            vCuerdas.muted = false;
+            vCasaarbol.muted = false;
+            vRusa.muted = false;
 
             btn.style.display = 'none';
         });
