@@ -53,6 +53,11 @@
             <video id="vidRusa" src="rusa.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidBebe" src="bebe.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidGato" src="gato.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidCesped" src="cesped.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidGaviota" src="gaviota.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidElefante" src="elefante.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidGirafa" src="girafa.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidBocadillo" src="bocadillo.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -129,6 +134,26 @@
             <a-video src="#vidGato" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
+        <a-entity mindar-image-target="targetIndex: 18" id="targetCesped">
+            <a-video src="#vidCesped" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 19" id="targetGaviota">
+            <a-video src="#vidGaviota" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 20" id="targetElefante">
+            <a-video src="#vidElefante" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 21" id="targetGirafa">
+            <a-video src="#vidGirafa" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity
+
+        <a-entity mindar-image-target="targetIndex: 22" id="targetBocadillo">
+            <a-video src="#vidBocadillo" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
     </a-scene>
 
     <script>
@@ -150,6 +175,11 @@
         const vRusa = document.querySelector('#vidRusa');
         const vBebe = document.querySelector('#vidBebe');
         const vGato = document.querySelector('#vidGato');
+        const vCesped = document.querySelector('#vidCesped');
+        const vGaviota = document.querySelector('#vidGaviota');
+        const vElefante = document.querySelector('#vidElefante');
+        const vGirafa = document.querySelector('#vidGirafa');
+        const vBocadillo = document.querySelector('#vidBocadillo');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -178,6 +208,11 @@
         setupTarget('#targetRusa',vRusa);
         setupTarget('#targetBebe',vBebe);
         setupTarget('#targetGato',vGato);
+        setupTarget('#targetCesped',vCesped);
+        setupTarget('#targetGaviota',vGaviota);
+        setupTarget('#targetElefante',vElefante);
+        setupTarget('#targetGirafa',vGirafa);
+        setupTarget('#targetBocadillo',vBocadillo);
 
         // Los navegadores bloquean el video con sonido si no hay interacción previa
         btn.addEventListener('click', () => {
@@ -199,6 +234,11 @@
             vRusa.muted = false;
             vBebe.muted = false;
             vGato.muted = false;
+            vCesped.muted = false;
+            vGaviota.muted = false;
+            vElefante.muted = false;
+            vGirafa.muted = false;
+            vBocadillo.muted = false;
 
             btn.style.display = 'none';
         });
