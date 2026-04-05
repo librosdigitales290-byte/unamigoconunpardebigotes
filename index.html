@@ -58,6 +58,12 @@
             <video id="vidElefante" src="elefante.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidJirafa" src="jirafa.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidBocadillo" src="bocadillo.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidHamster" src="hamster.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidSalto" src="salto.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidGeneral" src="general.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidLadron" src="ladron.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidGlobo" src="globo.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidEscoba" src="escoba.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -154,6 +160,30 @@
             <a-video src="#vidBocadillo" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
+        <a-entity mindar-image-target="targetIndex: 23" id="targetHamster">
+            <a-video src="#vidHamster" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 24" id="targetSalto">
+            <a-video src="#vidSalto" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 25" id="targetGeneral">
+            <a-video src="#vidGeneral" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 26" id="targetLadron">
+            <a-video src="#vidLadron" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 27" id="targetGlobo">
+            <a-video src="#vidGlobo" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 28" id="targetEscoba">
+            <a-video src="#vidEscoba" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
     </a-scene>
 
     <script>
@@ -180,6 +210,12 @@
         const vElefante = document.querySelector('#vidElefante');
         const vJirafa = document.querySelector('#vidJirafa');
         const vBocadillo = document.querySelector('#vidBocadillo');
+        const vHamster = document.querySelector('#vidHamster');
+        const vSalto = document.querySelector('#vidSalto');
+        const vGeneral = document.querySelector('#vidGeneral');
+        const vLadron = document.querySelector('#vidLadron');
+        const vGlobo = document.querySelector('#vidGlobo');
+        const vEscoba = document.querySelector('#vidEscoba');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -213,6 +249,12 @@
         setupTarget('#targetElefante',vElefante);
         setupTarget('#targetJirafa',vJirafa);
         setupTarget('#targetBocadillo',vBocadillo);
+        setupTarget('#targetHamster',vHamster);
+        setupTarget('#targetSalto',vSalto);
+        setupTarget('#targetGeneral',vGeneral);
+        setupTarget('#targetLadron',vLadron);
+        setupTarget('#targetGlobo',vGlobo);
+        setupTarget('#targetEscoba',vEscoba);
 
         // Los navegadores bloquean el video con sonido si no hay interacción previa
         btn.addEventListener('click', () => {
@@ -239,6 +281,12 @@
             vElefante.muted = false;
             vJirafa.muted = false;
             vBocadillo.muted = false;
+            vHamster.muted = false;
+            vSalto.muted = false;
+            vGeneral.muted = false;
+            vLadron.muted = false;
+            vGlobo.muted = false;
+            vEscoba.muted = false;
 
             btn.style.display = 'none';
         });
