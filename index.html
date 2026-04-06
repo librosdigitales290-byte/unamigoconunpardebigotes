@@ -64,6 +64,20 @@
             <video id="vidLadron" src="ladron.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidGlobo" src="globo.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidEscoba" src="escoba.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidPerseguir" src="perseguir.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidDragon" src="dragon.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="VidManchitas" src="manchitas.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidCampana" src="campana.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidSlime" src="slime.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidAutobus" src="autobus.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidCuchara" src="cuchara.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidMofeta" src="mofeta.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="VidCaidamike" src="caidamike.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidOca" src="oca.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidCirco" src="circo.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidIncendio" src="incendio.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidEstrella" src="estrella.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidEscribir" src="escribir.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -184,6 +198,62 @@
             <a-video src="#vidEscoba" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
+        <a-entity mindar-image-target="targetIndex: 29" id="targetPerseguir">
+            <a-video src="#vidPerseguir" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 30" id="targetDragon">
+            <a-video src="#vidDragon" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 31" id="targetManchitas">
+            <a-video src="#vidManchitas" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 32" id="targetCampana">
+            <a-video src="#vidCampana" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 33" id="targetSlime">
+            <a-video src="#vidSlime" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 34" id="targetAutobus">
+            <a-video src="#vidAutobus" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 35" id="targetCuchara">
+            <a-video src="#vidCuchara" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 36" id="targetMofeta">
+            <a-video src="#vidMofeta" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 37" id="targetCaidamike">
+            <a-video src="#vidCaidamike" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 38" id="targetOca">
+            <a-video src="#vidOca" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 39" id="targetCirco">
+            <a-video src="#vidCirco" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 40" id="targetIncendio">
+            <a-video src="#vidIncendio" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 41" id="targetEstrella">
+            <a-video src="#vidEstrella" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 42" id="targetEscribir">
+            <a-video src="#vidEscribir" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
     </a-scene>
 
     <script>
@@ -216,6 +286,19 @@
         const vLadron = document.querySelector('#vidLadron');
         const vGlobo = document.querySelector('#vidGlobo');
         const vEscoba = document.querySelector('#vidEscoba');
+        const vPerseguir = document.querySelector('#vidPerseguir');
+        const vDragon = document.querySelector('#vidDragon');
+        const vManchitas = document.querySelector('#vidManchitas');
+        const vCampana = document.querySelector('#vidCampana');
+        const vSlime = document.querySelector('#vidSlime');
+        const vAutobus = document.querySelector('#vidAutobus');
+        const vCuchara = document.querySelector('#vidCuchara');
+        const vMofeta = document.querySelector('#vidMofeta');
+        const vCaidamike = document.querySelector('#vidCaidamike');
+        const vOca= document.querySelector('#vidOca');
+        const vCirco = document.querySelector('#vidCirco');
+        const vIncendio = document.querySelector('#vidIncendio');
+        const vEstrella = document.querySelector('#vidEstrella');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -255,6 +338,21 @@
         setupTarget('#targetLadron',vLadron);
         setupTarget('#targetGlobo',vGlobo);
         setupTarget('#targetEscoba',vEscoba);
+        setupTarget('#targetPerseguir',vPerseguir);
+        setupTarget('#targetDragon',vDragon);
+        setupTarget('#targetManchitas',vManchitas);
+        setupTarget('#targetCampana',vCampana);
+        setupTarget('#targetSlime',vSlime);
+        setupTarget('#targetAutobus',vAutobus);
+        setupTarget('#targetCuchara',vCuchara);
+        setupTarget('#targetMofeta',vMofeta);
+        setupTarget('#targetCaidamike',vCaidamike);
+        setupTarget('#targetOca',vOca);
+        setupTarget('#targetCirco',vCirco);
+        setupTarget('#targetEscoba',vEscoba);
+        setupTarget('#targetIncendio',vIncendio);
+        setupTarget('#targetEstrella',vEstrella);
+        setupTarget('#targetEscribir',vEscribir);
 
         // Los navegadores bloquean el video con sonido si no hay interacción previa
         btn.addEventListener('click', () => {
@@ -287,6 +385,20 @@
             vLadron.muted = false;
             vGlobo.muted = false;
             vEscoba.muted = false;
+            vPerseguir.muted = false;
+            vDragon.muted = false;
+            vManchitas.muted = false;
+            vCampana.muted = false;
+            vSlime.muted = false;
+            vAutobus.muted = false;
+            vCuchara.muted = false;
+            vMofeta.muted = false;
+            vCaidamike.muted = false;
+            vOca.muted = false;
+            vCirco.muted = false;
+            vIncendio.muted = false;
+            vEstrella.muted = false;
+            vEscribir.muted = false;
 
             btn.style.display = 'none';
         });
