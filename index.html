@@ -76,6 +76,7 @@
             <video id="vidOca" src="oca.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidCirco" src="circo.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidIncendio" src="incendio.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidCircofuego" src="circofuego.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidEstrella" src="estrella.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidEscribir" src="escribir.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
         </a-assets>
@@ -246,11 +247,15 @@
             <a-video src="#vidIncendio" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
-        <a-entity mindar-image-target="targetIndex: 41" id="targetEstrella">
+        <a-entity mindar-image-target="targetIndex: 41" id="targetCircofuego">
+            <a-video src="#vidCircofuego" width="1" height="0.56" position="0 0 0"></a-video>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 42" id="targetEstrella">
             <a-video src="#vidEstrella" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
-        <a-entity mindar-image-target="targetIndex: 42" id="targetEscribir">
+        <a-entity mindar-image-target="targetIndex: 43" id="targetEscribir">
             <a-video src="#vidEscribir" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
@@ -298,7 +303,9 @@
         const vOca= document.querySelector('#vidOca');
         const vCirco = document.querySelector('#vidCirco');
         const vIncendio = document.querySelector('#vidIncendio');
+        const vCircofuego = document.querySelector('#vidCircofuego');
         const vEstrella = document.querySelector('#vidEstrella');
+        const vEscribir = document.querySelector('#vidEscribir');
 
         const btn = document.querySelector('#btnPlay');
 
@@ -349,8 +356,8 @@
         setupTarget('#targetCaidamike',vCaidamike);
         setupTarget('#targetOca',vOca);
         setupTarget('#targetCirco',vCirco);
-        setupTarget('#targetEscoba',vEscoba);
         setupTarget('#targetIncendio',vIncendio);
+        setupTarget('#targetCircofuego',vCircofuego);
         setupTarget('#targetEstrella',vEstrella);
         setupTarget('#targetEscribir',vEscribir);
 
@@ -397,6 +404,7 @@
             vOca.muted = false;
             vCirco.muted = false;
             vIncendio.muted = false;
+            vCircofuego.muted = false;
             vEstrella.muted = false;
             vEscribir.muted = false;
 
