@@ -70,7 +70,7 @@
             <video id="vidCampana" src="campana.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidSlime" src="slime.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidAutobus" src="autobus.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
-            <video id="vidCuchara" src="cuchara.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
+            <video id="vidTienda" src="tienda.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidMofeta" src="mofeta.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="VidCaidamike" src="caidamike.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
             <video id="vidOca" src="oca.mp4" preload="auto" loop="true" crossorigin="anonymous" playsinline></video>
@@ -223,8 +223,8 @@
             <a-video src="#vidAutobus" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
-        <a-entity mindar-image-target="targetIndex: 35" id="targetCuchara">
-            <a-video src="#vidCuchara" width="1" height="0.56" position="0 0 0"></a-video>
+        <a-entity mindar-image-target="targetIndex: 35" id="targetTienda">
+            <a-video src="#vidTienda" width="1" height="0.56" position="0 0 0"></a-video>
         </a-entity>
 
         <a-entity mindar-image-target="targetIndex: 36" id="targetMofeta">
@@ -297,7 +297,7 @@
         const vCampana = document.querySelector('#vidCampana');
         const vSlime = document.querySelector('#vidSlime');
         const vAutobus = document.querySelector('#vidAutobus');
-        const vCuchara = document.querySelector('#vidCuchara');
+        const vTienda = document.querySelector('#vidTienda');
         const vMofeta = document.querySelector('#vidMofeta');
         const vCaidamike = document.querySelector('#vidCaidamike');
         const vOca= document.querySelector('#vidOca');
@@ -351,7 +351,7 @@
         setupTarget('#targetCampana',vCampana);
         setupTarget('#targetSlime',vSlime);
         setupTarget('#targetAutobus',vAutobus);
-        setupTarget('#targetCuchara',vCuchara);
+        setupTarget('#targetTienda',vTienda);
         setupTarget('#targetMofeta',vMofeta);
         setupTarget('#targetCaidamike',vCaidamike);
         setupTarget('#targetOca',vOca);
@@ -398,7 +398,7 @@
             vCampana.muted = false;
             vSlime.muted = false;
             vAutobus.muted = false;
-            vCuchara.muted = false;
+            vTienda.muted = false;
             vMofeta.muted = false;
             vCaidamike.muted = false;
             vOca.muted = false;
